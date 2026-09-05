@@ -1,7 +1,6 @@
 import random as rn
 
 while True:
-    flag = 0
     print(
         "Winning rules of the game ROCK PAPER SCISSORS are:\nRock vs Paper -> Paper wins \nRock vs Scissors -> Rock wins \nPaper vs Scissors -> Scissors wins \n")
     print("Enter your choice \n1 - Rock \n2 - Paper\n3 - Scissors\n")

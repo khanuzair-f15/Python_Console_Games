@@ -10,18 +10,14 @@ Initialize FLAMES List: A list containing Friends, Lovers, Affection, Marriage, 
 Eliminate Options: Relationship options are removed in a circular manner using the remaining letter count.
 Display the Result: The last remaining option represents the predicted relationship.
 """
-from selenium.webdriver.common.actions.interaction import WHEEL
 
-bool = True
-while bool:
+game_running = True
+while game_running:
     # Take Two Names as Input: The names are converted to lowercase and spaces are removed.
     name1 = input("Enter your name: ").lower().replace(" ", "")
     name2 = input("Enter your friend: ").lower().replace(" ", "")
 
     # Remove Common Letters: Matching characters are removed from both names.
-
-    # ibra
-    # uzair
 
     for i in list(name1):
         for j in list(name2):
@@ -46,16 +42,23 @@ while bool:
         flames.pop(ele)
         start = ele
         if len(flames) == 1:
-            print("Relationship status:", flames[0])
+            print("Relationship game_running:", flames[0])
             break
 
     while True:
-        choice = input("Wanna play again (Y/n) ?")
+        try:
+            choice = input("Wanna play again (Y/n) ?")
+        except KeyboardInterrupt:
+            print("Exiting...")
+            break
+        except:
+            print("Error 404 please restart the game")
+            break
         if choice.strip().lower() == "y":
-            bool = True
+            game_running = True
             break
         elif choice.strip().lower() == "n":
-            bool = False
+            game_running = False
             break
         else:
             print("Enter a valid choice")
